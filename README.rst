@@ -2,9 +2,8 @@
 Sequana Pipeline Template
 =========================
 
-Cookiecutter_ template for a Sequana pipeline.
+This repository is a Cookiecutter template to build new Sequana pipeline.
 
-* GitHub repo: https://github.com/sequana/sequana_pipeline_template/
 
 Quickstart
 ----------
@@ -14,7 +13,7 @@ Cookiecutter 1.4.0 or higher)::
 
     pip install -U cookiecutter
 
-Generate a Python package project::
+Generate a new Sequana pipeline project as follows::
 
     cookiecutter https://github.com/sequana/sequana_pipeline_template.git
 
