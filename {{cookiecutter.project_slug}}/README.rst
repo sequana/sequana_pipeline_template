@@ -1,60 +1,61 @@
-:Overview: fastqc + multiqc 
-:Input: A set of FastQ files (paired or single-end) compressed or not
-:Output: an HTML file index.html (multiqc) and tree.html (individual fastqc report)
+=========================
+Sequana Pipeline Template
+=========================
 
-Usage
-~~~~~
-
-::
-
-    sequana_pipelines_fastqc --help
-    sequana_pipelines_fastqc --fastq-directory DATAPATH --run-mode local
-    sequana_pipelines_fastqc --fastq-directory DATAPATH --run-mode slurm
-
-This creates a directory **fastq**. You just need to execute the pipeline::
-
-    cd fastqc
-    sh fastqc.sh  # for a local run
-
-This launch a snakemake pipeline. If you are familiar with snakemake, you can retrieve the fastqc.rules and config.yaml files and then execute the pipeline yourself with specific parameters::
-
-    snakemake -s fastqc.rules --cores 4 --stats stats.txt
-
-Or use `sequanix <https://sequana.readthedocs.io/en/master/sequanix.html>`_ interface.
-
-Requirements
-~~~~~~~~~~~~
-
-This pipelines requires:
-
-- fastqc
-- multiqc
-- snakemake
-
-.. include:: ../requirements.txt
-
-.. image:: https://raw.githubusercontent.com/sequana/sequana_fastqc/master/sequana_pipelines/fastqc/dag.png
+This repository is a Cookiecutter template to build new Sequana pipeline.
 
 
-Details
-~~~~~~~~~
+Quickstart
+----------
 
-This pipeline runs fastqc in parallel on the input fastq files (paired or not)
-and then execute multiqc. A brief sequana summary report is also produced.
+Install the latest Cookiecutter if you haven't installed it yet (this requires
+Cookiecutter 1.4.0 or higher)::
+
+    pip install -U cookiecutter
+
+Generate a new Sequana pipeline project as follows::
+
+    cookiecutter https://github.com/sequana/sequana_pipeline_template.git
+
+you will be asked some questions in particular the name of the package. Just
+answer to the first question. Give a name for a pipeline that is not already
+used in the https://github.com/sequana/ organisation. For instance, if you define the
+name as *varseq*, it will create a directory called sequana_varseq with a structure
+similar to ::
+
+    ├── doc
+    │   ├── conf.py
+    │   ├── index.rst
+    │   └── Makefile
+    ├── README.rst
+    ├── requirements.txt
+    ├── sequana_pipelines
+    │   └── varseq
+    │       ├── config.yaml
+    │       ├── varseq.rules
+    │       ├── README.rst
+    │       ├── requirements.txt
+    │       └── schema.yaml
+    ├── setup.cfg
+    └── setup.py
+
+You can then edit the README, requirements, and the pipeline itself stored in
+sequana_pipelines/varseq in particular the *config.yaml* and *varseq.rules* files.
 
 
-Rules and configuration details
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Some future features to be included:
 
-Here is a documented configuration file :download:`../sequana_pipelines/fastqc/config.yaml` to be used with the pipeline. Each rule used in the pipeline may have a section in the
-configuration file. 
+* Create a repo and put it there.
+* Add the repo to your Travis-CI_ account.
+* Install the dev requirements into a virtualenv. (``pip install -r requirements_dev.txt``)
+* Register_ your project with PyPI.
+* Run the Travis CLI command `travis encrypt --add deploy.password` to encrypt your PyPI password in Travis config
+  and activate automated deployment on PyPI when you push a new tag to master branch.
+* Add the repo to your ReadTheDocs_ account + turn on the ReadTheDocs service hook.
+* Release your package by pushing a new tag to master.
+* Add a `requirements.txt` file that specifies the packages you will need for
+  your project and their versions. For more info see the `pip docs for requirements files`_.
+* Activate your project on `pyup.io`_.
 
-
-FastQC
-^^^^^^
-.. snakemakerule:: fastqc_dynamic
-
-mutliqc
-^^^^^^^
-.. snakemakerule:: multiqc2
-
+.. _`pip docs for requirements files`: https://pip.pypa.io/en/stable/user_guide/#requirements-files
+.. _Register: https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives

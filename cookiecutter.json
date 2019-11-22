@@ -1,4 +1,6 @@
 {
   "name": "changeme",
-  "project_slug": "sequana_{{ cookiecutter.name }}"
+  "project_slug": "sequana_{{ cookiecutter.name }}",
+  "description": "",
+  "keywords":""
 }

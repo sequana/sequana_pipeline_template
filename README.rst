@@ -19,8 +19,8 @@ Generate a new Sequana pipeline project as follows::
 
 you will be asked some questions in particular the name of the package. Just
 answer to the first question. Give a name for a pipeline that is not already
-used in the https://github.com/sequana/sequana/. For instance it you give the
-name varseq, it will create a directory called sequana_varseq with a structure
+used in the https://github.com/sequana/ organisation. For instance, if you define the
+name as *varseq*, it will create a directory called sequana_varseq with a structure
 similar to ::
 
     ├── doc
@@ -30,18 +30,20 @@ similar to ::
     ├── README.rst
     ├── requirements.txt
     ├── sequana_pipelines
-    │   └── fastqc
+    │   └── varseq
     │       ├── config.yaml
-    │       ├── fastqc.rules
+    │       ├── varseq.rules
     │       ├── README.rst
     │       ├── requirements.txt
     │       └── schema.yaml
     ├── setup.cfg
     └── setup.py
 
+You can then edit the README, requirements, and the pipeline itself stored in
+sequana_pipelines/varseq in particular the *config.yaml* and *varseq.rules* files.
 
 
-Then:
+Some future features to be included:
 
 * Create a repo and put it there.
 * Add the repo to your Travis-CI_ account.
