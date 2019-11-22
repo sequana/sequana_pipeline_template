@@ -1,0 +1,4 @@
+{
+  "name": "changeme",
+  "project_slug": "sequana_{{ cookiecutter.name }}"
+}
