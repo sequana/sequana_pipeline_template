@@ -14,7 +14,7 @@ input_pattern: '{}'
 
 
 ##############################################################################
-# FastQC section
+# Your section
 #
 # :Parameters:
 #
@@ -27,16 +27,5 @@ fastqc:
 
 ##############################################################################
 #
-#
-# - options: any multiqc options accepted. Note that if you use --comments, 
-#   it will be appended to the existing --comments added inside sequana. 
-#   By default, -p (create pictures) and -f (for overwritting) are used. 
-# - indir: The input multiqc (default is local).
-multiqc:
-    options: '-p -f '
-    indir: "."
-
-##############################################################################
-#
 onsuccess:
-    toclean: " slurm*out fastqc.rules config.yaml stats.txt "
+    toclean: " slurm*out {{cookiecutter.name}}.rules config.yaml stats.txt "
