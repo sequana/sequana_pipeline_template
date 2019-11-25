@@ -29,7 +29,7 @@ short description and keywords. Future version of this cookiecutter may ask for
 other questions. The goal is to automatically fill various filess so that you
 can already install the pipeline in a few minutes.
 
-If you define the name of the pipeline as ***varseq***, it will create a directory 
+If you define the name of the pipeline as **varseq**, it will create a directory 
 called *sequana_varseq* with a structure
 similar to ::
 
