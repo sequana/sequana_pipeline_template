@@ -2,6 +2,8 @@
 Sequana Pipeline Template
 =========================
 
+:version: 1.0
+
 This repository is a Cookiecutter template to build new Sequana pipeline.
 
 
@@ -47,11 +49,33 @@ similar to ::
     ├── setup.cfg
     └── setup.py
 
-You can then edit the README, requirements, and the pipeline itself stored in
-sequana_pipelines/varseq in particular the *config.yaml* and *varseq.rules* files.
+You can install this new pipeline as follows::
 
 
-Some future features to be included:
+    cd sequana_varseq
+    python setup.py
+
+You can build the documentation as follows::
+
+    cd sequana_varseq/doc
+    make html  # under linux
+
+Or test it::
+
+    cd sequana_varseq
+    pytest  # this tool (pytest) must be install first (pip install pytest)
+
+
+Of course, you now need to work a little bit by replacing the content of some
+files with your code and/or documentation and tests.
+
+The most important is to edit the *config.yaml* and *varseq.rules* in the
+sequana_pipelines/varseq directory with your own
+snakemake pipeline and configuration file. The remaining files do not need to be
+edited at first. However, to be complete, you will need to edit the test files in the *test/* directory, the documentation (*index.rst*) in the *./doc* directory and so on. 
+
+This is not perfect and we will most probably edit this template in the future
+to make it more robust and possibly add such features (help needed):
 
 * Create a repo and put it there.
 * Add the repo to your Travis-CI_ account.

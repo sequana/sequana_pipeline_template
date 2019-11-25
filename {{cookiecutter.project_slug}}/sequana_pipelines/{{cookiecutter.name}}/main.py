@@ -9,7 +9,7 @@ from sequana import Module
 
 col = Colors()
 
-m = Module({{cookiecutter.name}})
+m = Module("{{cookiecutter.name}}")
 assert m.is_pipeline()
 config = SequanaConfig(m.config)
 
