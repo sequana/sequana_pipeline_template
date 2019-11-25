@@ -19,10 +19,8 @@ input_pattern: '{}'
 # :Parameters:
 #
 # - options: string with any valid FastQC options
-fastqc:
-    do_group: true
-    options: ''
-    threads: 4
+todo:
+    example1: true
 
 
 ##############################################################################

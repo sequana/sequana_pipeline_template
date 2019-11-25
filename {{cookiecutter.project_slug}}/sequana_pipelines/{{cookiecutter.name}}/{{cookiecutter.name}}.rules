@@ -1,11 +1,11 @@
-"""Multi fastqc pipeline
+"""{{cookiecutter.name}} pipeline
 
 Author: Thomas Cokelaer
 Affiliation: Institut Pasteur @ 2019
 
 This pipeline is part of Sequana software (sequana.readthedocs.io)
 
-snakemake -s fastqc.rules --forceall --stats stats.txt --cores 4
+snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
 
 
 """
@@ -22,7 +22,7 @@ configfile: "config.yaml"
 # exec(open(sequana.modules["fastqc_dynamic"], "r").read())
 
 # A convenient manager
-manager = sm.PipelineManager("fastqc", config)
+manager = sm.PipelineManager("{{cookiecutter.name}}", config)
 
 rule pipeline:
     input: "multiqc/multiqc_report.html"
