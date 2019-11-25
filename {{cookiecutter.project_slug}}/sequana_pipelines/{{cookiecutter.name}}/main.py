@@ -60,8 +60,7 @@ class Options(argparse.ArgumentParser):
             "--output-directory",
             dest="outdir",
             default="{{cookiecutter.name}}",
-            help="Where to save the FASTQC results (default
-{{cookiecutter.name}}/ )",
+            help="Where to save the FASTQC results (default {{cookiecutter.name}}/ )",
         )
         self.add_argument(
             "--fastq-directory",
