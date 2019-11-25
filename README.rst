@@ -18,9 +18,17 @@ Generate a new Sequana pipeline project as follows::
     cookiecutter https://github.com/sequana/sequana_pipeline_template.git
 
 you will be asked some questions in particular the name of the package. Just
-answer to the first question. Give a name for a pipeline that is not already
-used in the https://github.com/sequana/ organisation. For instance, if you define the
-name as *varseq*, it will create a directory called sequana_varseq with a structure
+answer to the first question, which is the name of the pipeline. The name of the
+directory should be named after the name of the project. For instance, if your
+project is **varseq**, then your directory name must be **sequana_varseq**. 
+Give a name for a pipeline that is not already
+used in the https://github.com/sequana/ organisation. You will be asked for a
+short description and keywords. Future version of this cookiecutter may ask for
+other questions. The goal is to automatically fill various filess so that you
+can already install the pipeline in a few minutes.
+
+If you define the name of the pipeline as ***varseq***, it will create a directory 
+called *sequana_varseq* with a structure
 similar to ::
 
     ├── doc

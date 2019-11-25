@@ -4,7 +4,7 @@ Sequana {{cookiecutter.name}} pipeline documentation
 |version|, |today|
 
 
-:Source: See  `http://github.com/sequana/sequana_{{cookiercutter} <https://github.com/sequana/sequana_{{cookiercutter}/>`_.
+:Source: See  `http://github.com/sequana/sequana_{{cookiecutter.name}} <https://github.com/sequana/sequana_{{cookiecutter.name}}/>`_.
 :Issues: Please fill a report on `github <https://github.com/sequana/sequana/issues>`_
 :How to cite: For Sequana in general including the pipelines, please use
 
@@ -27,10 +27,10 @@ What is Sequana ?
 
 To join the project, please let us know on `github <https://github.com/sequana/sequana/issues/306>`_.
 
-The Sequana {{cookiercutter} pipeline
+The Sequana {{cookiecutter.name}} pipeline
 ==============================================
 
-.. include:: ../sequana_pipelines/{{cookiercutter}/README.rst
+.. include:: ../sequana_pipelines/{{cookiecutter.name}}/README.rst
 
 
 
