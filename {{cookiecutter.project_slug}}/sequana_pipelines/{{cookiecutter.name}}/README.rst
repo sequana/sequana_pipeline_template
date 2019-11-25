@@ -27,10 +27,6 @@ Requirements
 
 This pipelines requires:
 
-- TODO
-- TODO
-- snakemake
-
 .. include:: ../requirements.txt
 
 .. image:: https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/dag.png
@@ -39,8 +35,8 @@ This pipelines requires:
 Details
 ~~~~~~~~~
 
-This pipeline runs {{cookiecutter.name}} in parallel on the input fastq files (paired or not)
-and then execute multiqc. A brief sequana summary report is also produced.
+This pipeline runs **{{cookiecutter.name}}** in parallel on the input fastq files (paired or not). 
+A brief sequana summary report is also produced.
 
 
 Rules and configuration details
