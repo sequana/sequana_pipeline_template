@@ -1,10 +1,10 @@
-Sequana fastqc pipeline documentation
-#####################################
+Sequana {{cookiecutter.name}} pipeline documentation
+#####################################################
 
 |version|, |today|
 
 
-:Source: See  `http://github.com/sequana/sequana_fastqc <https://github.com/sequana/sequana_fastqc/>`_.
+:Source: See  `http://github.com/sequana/sequana_{{cookiercutter} <https://github.com/sequana/sequana_{{cookiercutter}/>`_.
 :Issues: Please fill a report on `github <https://github.com/sequana/sequana/issues>`_
 :How to cite: For Sequana in general including the pipelines, please use
 
@@ -27,10 +27,10 @@ What is Sequana ?
 
 To join the project, please let us know on `github <https://github.com/sequana/sequana/issues/306>`_.
 
-The Sequana fastqc pipeline
-===========================
+The Sequana {{cookiercutter} pipeline
+==============================================
 
-.. include:: ../sequana_pipelines/fastqc/README.rst
+.. include:: ../sequana_pipelines/{{cookiercutter}/README.rst
 
 
 

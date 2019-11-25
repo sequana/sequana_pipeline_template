@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('sphinxext'))
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
-pkg_name = "sequana_fastqc"
+pkg_name = "sequana_{{cookiecutter.name}"
 
 # This is for ReadTheDoc
 import matplotlib
