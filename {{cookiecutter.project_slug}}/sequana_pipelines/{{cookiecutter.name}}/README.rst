@@ -52,6 +52,6 @@ configuration file.
 
 RULENAME_TODO
 ^^^^^^^^^^^^^^
-.. snakemakerule:: TODO_RULE_NAME
+.. .. snakemakerule:: TODO_RULE_NAME
 
 
