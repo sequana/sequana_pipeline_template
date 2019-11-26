@@ -1,61 +1,53 @@
-=========================
-Sequana Pipeline Template
-=========================
+:Overview: TODO 
+:Input: TODO
+:Output: TODO
 
-This repository is a Cookiecutter template to build new Sequana pipeline.
+Usage
+~~~~~
 
+::
 
-Quickstart
-----------
+    sequana_pipelines_{{cookiecutter.name}} --help
+    sequana_pipelines_{{cookiecutter.name}} --fastq-directory DATAPATH --run-mode local
+    sequana_pipelines_{{cookiecutter.name}} --fastq-directory DATAPATH --run-mode slurm
 
-Install the latest Cookiecutter if you haven't installed it yet (this requires
-Cookiecutter 1.4.0 or higher)::
+This creates a directory **fastq**. You just need to execute the pipeline::
 
-    pip install -U cookiecutter
+    cd {{cookiecutter.name}}
+    sh {{cookiecutter.name}}.sh  # for a local run
 
-Generate a new Sequana pipeline project as follows::
+This launch a snakemake pipeline. If you are familiar with snakemake, you can retrieve the pipeline itself and its configuration files and then execute the pipeline yourself with specific parameters::
 
-    cookiecutter https://github.com/sequana/sequana_pipeline_template.git
+    snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt
 
-you will be asked some questions in particular the name of the package. Just
-answer to the first question. Give a name for a pipeline that is not already
-used in the https://github.com/sequana/ organisation. For instance, if you define the
-name as *varseq*, it will create a directory called sequana_varseq with a structure
-similar to ::
+Or use `sequanix <https://sequana.readthedocs.io/en/master/sequanix.html>`_ interface.
 
-    ├── doc
-    │   ├── conf.py
-    │   ├── index.rst
-    │   └── Makefile
-    ├── README.rst
-    ├── requirements.txt
-    ├── sequana_pipelines
-    │   └── varseq
-    │       ├── config.yaml
-    │       ├── varseq.rules
-    │       ├── README.rst
-    │       ├── requirements.txt
-    │       └── schema.yaml
-    ├── setup.cfg
-    └── setup.py
+Requirements
+~~~~~~~~~~~~
 
-You can then edit the README, requirements, and the pipeline itself stored in
-sequana_pipelines/varseq in particular the *config.yaml* and *varseq.rules* files.
+This pipelines requires:
+
+.. include:: ../requirements.txt
+
+.. image:: https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/dag.png
 
 
-Some future features to be included:
+Details
+~~~~~~~~~
 
-* Create a repo and put it there.
-* Add the repo to your Travis-CI_ account.
-* Install the dev requirements into a virtualenv. (``pip install -r requirements_dev.txt``)
-* Register_ your project with PyPI.
-* Run the Travis CLI command `travis encrypt --add deploy.password` to encrypt your PyPI password in Travis config
-  and activate automated deployment on PyPI when you push a new tag to master branch.
-* Add the repo to your ReadTheDocs_ account + turn on the ReadTheDocs service hook.
-* Release your package by pushing a new tag to master.
-* Add a `requirements.txt` file that specifies the packages you will need for
-  your project and their versions. For more info see the `pip docs for requirements files`_.
-* Activate your project on `pyup.io`_.
+This pipeline runs **{{cookiecutter.name}}** in parallel on the input fastq files (paired or not). 
+A brief sequana summary report is also produced.
 
-.. _`pip docs for requirements files`: https://pip.pypa.io/en/stable/user_guide/#requirements-files
-.. _Register: https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives
+
+Rules and configuration details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here is a documented configuration file :download:`../sequana_pipelines/{{cookiecutter.name}}/config.yaml` to be used with the pipeline. Each rule used in the pipeline may have a section in the
+configuration file. 
+
+
+RULENAME_TODO
+^^^^^^^^^^^^^^
+.. .. snakemakerule:: TODO_RULE_NAME
+
+

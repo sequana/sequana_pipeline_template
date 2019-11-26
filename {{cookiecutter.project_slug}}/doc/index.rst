@@ -32,7 +32,7 @@ For more information, please see `github <https://sequana.readthedocs.io>`_.
 The Sequana {{cookiecutter.name}} pipeline
 ==============================================
 
-.. include:: ../sequana_pipelines/{{cookiecutter.name}}/README.rst
+.. include:: ../README.rst
 
 
 
