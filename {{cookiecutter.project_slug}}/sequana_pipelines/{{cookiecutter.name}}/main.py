@@ -15,7 +15,7 @@ config = SequanaConfig(m.config)
 
 
 class Options(argparse.ArgumentParser):
-    def __init__(self, prog="cookiecutter.nam"):
+    def __init__(self, prog="{{cookiecutter.name}}"):
         usage = col.purple(
             """This script prepares the sequana pipeline {{cookiecutter.name}} layout to
             include the Snakemake pipeline and its configuration file ready to
