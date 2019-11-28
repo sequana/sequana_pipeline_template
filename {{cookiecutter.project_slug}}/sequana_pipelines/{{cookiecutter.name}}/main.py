@@ -3,14 +3,20 @@ import os
 import argparse
 import shutil
 
-from sequana.pipelines_common import SlurmOptions, Colors, SnakemakeOptions
-from sequana.pipelines_common import PipelineManager
+from sequana.pipelines_common import *
+from sequana.snaketools import Module
+from sequana import logger
+logger.level = "INFO"
 
 col = Colors()
 
+NAME = "{{cookiecutter.name}}"
+m = Module(NAME)
+m.is_executable()
+
 
 class Options(argparse.ArgumentParser):
-    def __init__(self, prog="{{cookiecutter.name}}"):
+    def __init__(self, prog=NAME):
         usage = col.purple(
             """This script prepares the sequana pipeline {{cookiecutter.name}} layout to
             include the Snakemake pipeline and its configuration file ready to
@@ -21,11 +27,11 @@ class Options(argparse.ArgumentParser):
 
             For a local run, use :
 
-                sequana_pipelines_{{cookiecutter.name}} --fastq-directory PATH_TO_DATA --run-mode local
+                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA --run-mode local
 
             For a run on a SLURM cluster:
 
-                sequana_pipelines_{{cookiecutter.name}} --fastq-directory PATH_TO_DATA --run-mode slurm
+                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA --run-mode slurm
 
         """
         )
@@ -37,6 +43,9 @@ class Options(argparse.ArgumentParser):
 
         # add a snakemake group of options to the parser
         so = SnakemakeOptions()
+        so.add_options(self)
+
+        so = PipelineOptions(working_directory=NAME)
         so.add_options(self)
 
         self.add_argument(
@@ -55,7 +64,6 @@ class Options(argparse.ArgumentParser):
         
 
 def main(args=None):
-    NAME = "{{cookiecutter.name}}"
 
     if args is None:
         args = sys.argv
