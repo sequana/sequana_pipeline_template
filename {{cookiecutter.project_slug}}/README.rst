@@ -27,7 +27,7 @@ Requirements
 
 This pipelines requires:
 
-.. include:: ../requirements.txt
+.. include:: sequana_pipelines/{{cookiecutter.name}}/requirements.txt
 
 .. image:: https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/dag.png
 
