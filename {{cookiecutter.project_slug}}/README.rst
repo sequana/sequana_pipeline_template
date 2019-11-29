@@ -1,6 +1,9 @@
+This is is the **fastqc** pipeline from the Sequana projet
+
 :Overview: TODO 
 :Input: TODO
 :Output: TODO
+:Status: draft
 
 Usage
 ~~~~~
@@ -8,15 +11,17 @@ Usage
 ::
 
     sequana_pipelines_{{cookiecutter.name}} --help
-    sequana_pipelines_{{cookiecutter.name}} --fastq-directory DATAPATH --run-mode local
-    sequana_pipelines_{{cookiecutter.name}} --fastq-directory DATAPATH --run-mode slurm
+    sequana_pipelines_{{cookiecutter.name}} --input-directory DATAPATH --run-mode local
+    sequana_pipelines_{{cookiecutter.name}} --input-directory DATAPATH --run-mode slurm
 
-This creates a directory **fastq**. You just need to execute the pipeline::
+This creates a directory with the pipeline and configuration file. You will then need 
+to execute the pipeline::
 
     cd {{cookiecutter.name}}
     sh {{cookiecutter.name}}.sh  # for a local run
 
-This launch a snakemake pipeline. If you are familiar with snakemake, you can retrieve the pipeline itself and its configuration files and then execute the pipeline yourself with specific parameters::
+This launch a snakemake pipeline. If you are familiar with snakemake, you can 
+retrieve the pipeline itself and its configuration files and then execute the pipeline yourself with specific parameters::
 
     snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt
 
