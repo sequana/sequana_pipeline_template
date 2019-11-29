@@ -1,9 +1,23 @@
-This is is the **fastqc** pipeline from the Sequana projet
+This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://sequana.readthedocs.org>`_ projet
 
 :Overview: TODO 
 :Input: TODO
 :Output: TODO
 :Status: draft
+:Citation: Cokelaer et al, (2017), ‘Sequana’: a Set of Snakemake NGS pipelines, Journal of Open Source Software, 2(16), 352, JOSS DOI doi:10.21105/joss.00352
+
+
+Installation
+~~~~~~~~~~~~
+
+You must install Sequana first::
+
+    pip install sequana
+
+Then, just install this package::
+
+    pip install sequana_fastqc
+
 
 Usage
 ~~~~~
@@ -30,9 +44,9 @@ Or use `sequanix <https://sequana.readthedocs.io/en/master/sequanix.html>`_ inte
 Requirements
 ~~~~~~~~~~~~
 
-This pipelines requires:
+This pipelines requires the following executable(s):
 
-.. include:: sequana_pipelines/{{cookiecutter.name}}/requirements.txt
+- TODO
 
 .. image:: https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/dag.png
 
@@ -47,12 +61,6 @@ A brief sequana summary report is also produced.
 Rules and configuration details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here is a documented configuration file :download:`../sequana_pipelines/{{cookiecutter.name}}/config.yaml` to be used with the pipeline. Each rule used in the pipeline may have a section in the
-configuration file. 
-
-
-RULENAME_TODO
-^^^^^^^^^^^^^^
-.. .. snakemakerule:: TODO_RULE_NAME
-
+Here is the `latest documented configuration file <https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/fastqc/config.yaml>`_
+to be used with the pipeline. Each rule used in the pipeline may have a section in the configuration file. 
 

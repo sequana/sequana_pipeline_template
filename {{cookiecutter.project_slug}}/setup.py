@@ -10,16 +10,18 @@ version              = '%d.%d.%d' % (_MAJOR, _MINOR, _MICRO)
 release              = '%d.%d' % (_MAJOR, _MINOR)
 
 metainfo = {
-    'authors': {"main": ("yourname", "email@whatever.org")},
+    'authors': {"main": ("thomas cokelaer", "thomas.cokelaer@pasteur.fr")},
     'version': version,
     'license' : 'new BSD',
-    'download_url' : ['http://pypi.python.org/pypi/sequana'],
-    'url' : ["http://github.com/sequana/"],
-    'description': "{{cookiecutter.description}}" ,
+    'url' : "https://github.com/sequana/",
+    'description': "A fastqc pipeline from sequana project." ,
     'platforms' : ['Linux', 'Unix', 'MacOsX', 'Windows'],
     'keywords' : ['{{cookiecutter.keywords}}'],
     'classifiers' : [
           'Development Status :: 4 - Beta',
+          #'Development Status :: 5 - Production/Stable',
+          'Intended Audience :: Education',
+          'Intended Audience :: End Users/Desktop',
           'Intended Audience :: Developers',
           'Intended Audience :: Science/Research',
           'License :: OSI Approved :: BSD License',
@@ -47,7 +49,6 @@ setup(
     license          = metainfo['license'],
     platforms        = metainfo['platforms'],
     url              = metainfo['url'],
-    download_url     = metainfo['download_url'],
     classifiers      = metainfo['classifiers'],
 
     # package installation
