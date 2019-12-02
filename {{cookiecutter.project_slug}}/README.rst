@@ -61,6 +61,6 @@ A brief sequana summary report is also produced.
 Rules and configuration details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here is the `latest documented configuration file <https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/fastqc/config.yaml>`_
+Here is the `latest documented configuration file <https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/config.yaml>`_
 to be used with the pipeline. Each rule used in the pipeline may have a section in the configuration file. 
 
