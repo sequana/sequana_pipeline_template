@@ -1,7 +1,6 @@
 import sys
 import os
 import argparse
-import shutil
 
 from sequana.pipelines_common import *
 from sequana.snaketools import Module
@@ -48,15 +47,8 @@ class Options(argparse.ArgumentParser):
         so = PipelineOptions(working_directory=NAME)
         so.add_options(self)
 
-        self.add_argument(
-            "--run-mode",
-            dest="run_mode",
-            required=True,
-            choices=['local', 'slurm'],
-            help="""run_mode can be either 'local' or 'slurm'. Use local to run
-                the pipeline locally, otherwise use 'slurm' to run on a cluster
-                with SLURM scheduler"""
-        )
+        so = GeneralOptions()
+        so.add_options(self)
 
         pipeline_group = self.add_argument_group("pipeline")
 
