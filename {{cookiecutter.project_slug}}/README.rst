@@ -16,7 +16,7 @@ You must install Sequana first::
 
 Then, just install this package::
 
-    pip install sequana_fastqc
+    pip install sequana_{{cookiecutter.name}}
 
 
 Usage

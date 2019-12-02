@@ -34,7 +34,7 @@ import matplotlib.sphinxext
 
 release = version
 author = "Thomas Cokelaer"
-title = "Sequana {{cookiecutter.name}}" pipeline
+title = "Sequana {{cookiecutter.name}} pipeline"
 copyright = author + ", 2016-2019"
 project = 'Sequana {{cookiecutter.name}} pipeline'
 

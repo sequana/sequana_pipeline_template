@@ -41,10 +41,10 @@ class Options(argparse.ArgumentParser):
         so.add_options(self)
 
         # add a snakemake group of options to the parser
-        so = SnakemakeOptions()
+        so = SnakemakeOptions(working_directory=NAME)
         so.add_options(self)
 
-        so = PipelineOptions(working_directory=NAME)
+        so = InputOptions()
         so.add_options(self)
 
         so = GeneralOptions()
