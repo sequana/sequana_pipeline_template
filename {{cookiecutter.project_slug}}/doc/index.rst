@@ -6,7 +6,7 @@ Sequana {{cookiecutter.name}} pipeline documentation
 The **{{cookiecutter.name}}** pipeline is a `Sequana <https://github.com/sequana/sequana>`_ pipeline. You can find the source code 
 on  `https://github.com/sequana/sequana_{{cookiecutter.name}} <https://github.com/sequana/sequana_{{cookiecutter.name}}/>`_. Would you have issues
 about the code, usage or lack of information, please fill a report 
-on `**Sequana** itself <https://github.com/sequana/sequana/issues>`_ indicating the pipeline name (We centralized all 
+on `Sequana itself <https://github.com/sequana/sequana/issues>`_ indicating the pipeline name (We centralized all 
 pipelines issues on **Sequana** repository only so as to be more responsive).
 
 If you use **Sequana**, please do not forget to cite us:
