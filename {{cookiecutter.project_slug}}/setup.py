@@ -14,7 +14,7 @@ metainfo = {
     'version': version,
     'license' : 'new BSD',
     'url' : "https://github.com/sequana/",
-    'description': "A fastqc pipeline from sequana project." ,
+    'description': "{{cookiecutter.description}}" ,
     'platforms' : ['Linux', 'Unix', 'MacOsX', 'Windows'],
     'keywords' : ['{{cookiecutter.keywords}}'],
     'classifiers' : [
@@ -67,7 +67,8 @@ setup(
     zip_safe=False,
 
     entry_points = {'console_scripts':[
-        'sequana_pipelines_{{cookiecutter.name}}=sequana_pipelines.{{cookiecutter.name}}.main:main']
+        'sequana_pipelines_{{cookiecutter.name}}=sequana_pipelines.{{cookiecutter.name}}.main:main',
+        'sequana_{{cookiecutter.name}}=sequana_pipelines.{{cookiecutter.name}}.main:main']
     }
 
 )

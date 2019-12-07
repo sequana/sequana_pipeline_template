@@ -25,8 +25,7 @@ Usage
 ::
 
     sequana_pipelines_{{cookiecutter.name}} --help
-    sequana_pipelines_{{cookiecutter.name}} --input-directory DATAPATH --run-mode local
-    sequana_pipelines_{{cookiecutter.name}} --input-directory DATAPATH --run-mode slurm
+    sequana_pipelines_{{cookiecutter.name}} --input-directory DATAPATH 
 
 This creates a directory with the pipeline and configuration file. You will then need 
 to execute the pipeline::
