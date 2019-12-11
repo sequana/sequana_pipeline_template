@@ -12,19 +12,3 @@ mapping:
     "input_pattern":
         type: str
         required: False
-    "fastqc":
-        type: map
-        mapping:
-            "do_group":
-                type: bool
-            "options":
-                type: str
-                required: False
-
-    "multiqc":
-        type: map
-        mapping:
-            "options": 
-                type: str
-            "indir": 
-                type: str

@@ -26,11 +26,11 @@ class Options(argparse.ArgumentParser):
 
             For a local run, use :
 
-                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA --run-mode local
+                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA 
 
             For a run on a SLURM cluster:
 
-                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA --run-mode slurm
+                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA 
 
         """
         )
