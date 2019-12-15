@@ -34,7 +34,9 @@ class Options(argparse.ArgumentParser):
 
         """
         )
-        super(Options, self).__init__(usage=usage, prog=prog, description="")
+        super(Options, self).__init__(usage=usage, prog=prog, description="",
+            formatter_class=argparse.ArgumentDefaultsHelpFormatter
+        )
 
         # add a new group of options to the parser
         so = SlurmOptions()
