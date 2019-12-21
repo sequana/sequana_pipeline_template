@@ -1,5 +1,6 @@
 {
-  "name": "changeme",
-  "description": "",
-  "keywords":""
+  "name": "please provide a valid name in small caps e.g. fastqc, demultiplex, etc",
+  "project_slug": "sequana_{{ cookiecutter.name|lower }}",
+  "description": "A short description",
+  "keywords":"A list of keywords separated by commas"
 }
