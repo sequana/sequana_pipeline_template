@@ -26,11 +26,9 @@ you will be asked some questions in particular the name of the package.
 - The first question qsk the name of the future pipeline. There is no strict
 convention in Sequana but we usually use small caps and underscores to separate
 words.
-- For the second question, just press enter. This is the name of the python
-package. We append the word **sequana** as a prefix to the pipeline name.
-- The third question is the short description that will be added to your
+- The second question is the short description that will be added to your
 setup.py configuration file
-- The fourth questions asked for keywords, also added to the setup.py
+- The third questions asked for keywords, also added to the setup.py
 
 That's it.
 
