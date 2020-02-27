@@ -1,4 +1,4 @@
-This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://sequana.readthedocs.org>`_ projet
+This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://sequana.readthedocs.org>`_ project
 
 :Overview: TODO 
 :Input: TODO
