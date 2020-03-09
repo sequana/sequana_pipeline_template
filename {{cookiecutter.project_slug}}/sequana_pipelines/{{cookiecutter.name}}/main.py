@@ -72,8 +72,8 @@ def main(args=None):
     # fill the config file with input parameters
     cfg = manager.config.config
     # EXAMPLE TOREPLACE WITH YOUR NEEDS
-    cfg.TODO = os.path.abspath(options.working_directory)
-    cfg.YOURSECTION.TODO = options.TODO
+    cfg.input_directory = os.path.abspath(options.input_directory)
+    cfg.input_pattern = options.input_pattern
 
     # finalise the command and save it; copy the snakemake. update the config
     # file and save it.
