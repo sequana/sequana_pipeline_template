@@ -54,7 +54,7 @@ setup(
     packages = ["sequana_pipelines.{{cookiecutter.name}}",
         'sequana_pipelines.{{cookiecutter.name}}.data' ],
 
-    install_requires = "sequana",
+    install_requires = open("requirements.txt").read(),
 
     # This is recursive include of data files
     exclude_package_data = {"": ["__pycache__"]},

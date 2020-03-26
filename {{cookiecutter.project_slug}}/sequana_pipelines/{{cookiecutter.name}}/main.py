@@ -15,7 +15,7 @@ m.is_executable()
 
 
 class Options(argparse.ArgumentParser):
-    def __init__(self, prog=NAME):
+    def __init__(self, prog=NAME, epilog=None):
         usage = col.purple(
             """This script prepares the sequana pipeline {{cookiecutter.name}} layout to
             include the Snakemake pipeline and its configuration file ready to
@@ -35,6 +35,7 @@ class Options(argparse.ArgumentParser):
         """
         )
         super(Options, self).__init__(usage=usage, prog=prog, description="",
+            epilog=epilog,
             formatter_class=argparse.ArgumentDefaultsHelpFormatter
         )
 
@@ -62,7 +63,7 @@ def main(args=None):
     if args is None:
         args = sys.argv
 
-    options = Options(NAME).parse_args(args[1:])
+    options = Options(NAME, epilog=sequana_epilog).parse_args(args[1:])
 
     manager = PipelineManager(options, NAME)
 
