@@ -16,24 +16,7 @@ m.is_executable()
 
 class Options(argparse.ArgumentParser):
     def __init__(self, prog=NAME, epilog=None):
-        usage = col.purple(
-            """This script prepares the sequana pipeline {{cookiecutter.name}} layout to
-            include the Snakemake pipeline and its configuration file ready to
-            use.
-
-            In practice, it copies the config file and the pipeline into a
-            directory ({{cookiecutter.name}}) together with an executable script
-
-            For a local run, use :
-
-                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA 
-
-            For a run on a SLURM cluster:
-
-                sequana_pipelines_{{cookiecutter.name}} --input-directory PATH_TO_DATA 
-
-        """
-        )
+        usage = col.purple(sequana_prolog.format(**{"name": NAME}))
         super(Options, self).__init__(usage=usage, prog=prog, description="",
             epilog=epilog,
             formatter_class=argparse.ArgumentDefaultsHelpFormatter
