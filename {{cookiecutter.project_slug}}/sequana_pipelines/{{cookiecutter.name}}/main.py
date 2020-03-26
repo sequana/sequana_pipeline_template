@@ -63,8 +63,13 @@ def main(args=None):
     if args is None:
         args = sys.argv
 
+    # whatever needs to be called by all pipeline before the options parsing
+    init_pipeline(NAME)
+
+    # option parsing including common epilog
     options = Options(NAME, epilog=sequana_epilog).parse_args(args[1:])
 
+    # the real stuff is here
     manager = PipelineManager(options, NAME)
 
     # create the beginning of the command and the working directory
