@@ -54,7 +54,7 @@ class Develop(develop):
         develop.run(self)
 
 setup(
-    name             = "sequana_{}".format({{cookiecutter.name}}),
+    name             = "sequana_{}".format(NAME),
     version          = version,
     maintainer       = metainfo['authors']['main'][0],
     maintainer_email = metainfo['authors']['main'][1],
