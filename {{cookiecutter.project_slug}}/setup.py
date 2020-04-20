@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # License: 3-clause BSD
 from setuptools import setup, find_namespace_packages
+from setuptools.command.develop import develop
+from setuptools.command.install import install
+import subprocess
 
 _MAJOR               = 0
 _MINOR               = 8
@@ -34,9 +37,24 @@ metainfo = {
           'Topic :: Scientific/Engineering :: Physics']
     }
 
+NAME = "{{cookiecutter.name}}"
+
+class Install(install):
+    def run(self):
+        cmd = "sequana_completion --name {} --force ".format(NAME)
+        try: subprocess.run(cmd.split())
+        except:pass
+        install.run(self)
+
+class Develop(develop):
+    def run(self):
+        cmd = "sequana_completion --name {} --force ".format(NAME)
+        try:subprocess.run(cmd.split())
+        except:pass
+        develop.run(self)
 
 setup(
-    name             = "sequana_{{cookiecutter.name}}",
+    name             = "sequana_{}".format({{cookiecutter.name}}),
     version          = version,
     maintainer       = metainfo['authors']['main'][0],
     maintainer_email = metainfo['authors']['main'][1],
