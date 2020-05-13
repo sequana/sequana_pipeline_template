@@ -4,6 +4,7 @@ import argparse
 
 from sequana_pipetools.options import *
 from sequana_pipetools.misc import Colors
+from sequana_pipetools.info import sequana_epilog, sequana_prolog
 
 col = Colors()
 
@@ -58,18 +59,20 @@ def main(args=None):
     m.is_executable()
 
     from sequana import logger
-    logger.level = "INFO"
+    from sequana.pipelines_common import SequanaManager
+    logger.level = options.level
     # the real stuff is here
-    manager = PipelineManager(options, NAME)
+    manager = SequanaManager(options, NAME)
 
     # create the beginning of the command and the working directory
     manager.setup()
 
-    # fill the config file with input parameters
-    cfg = manager.config.config
-    # EXAMPLE TOREPLACE WITH YOUR NEEDS
-    cfg.input_directory = os.path.abspath(options.input_directory)
-    cfg.input_pattern = options.input_pattern
+    if options.from_project is None:
+        # fill the config file with input parameters
+        cfg = manager.config.config
+        # EXAMPLE TOREPLACE WITH YOUR NEEDS
+        cfg.input_directory = os.path.abspath(options.input_directory)
+        cfg.input_pattern = options.input_pattern
 
     # finalise the command and save it; copy the snakemake. update the config
     # file and save it.
