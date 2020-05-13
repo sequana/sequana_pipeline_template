@@ -2,16 +2,12 @@ import sys
 import os
 import argparse
 
-from sequana.pipelines_common import *
-from sequana.snaketools import Module
-from sequana import logger
-logger.level = "INFO"
+from sequana_pipetools.options import *
+from sequana_pipetools.misc import Colors
 
 col = Colors()
 
 NAME = "{{cookiecutter.name}}"
-m = Module(NAME)
-m.is_executable()
 
 
 class Options(argparse.ArgumentParser):
@@ -46,12 +42,23 @@ def main(args=None):
     if args is None:
         args = sys.argv
 
+    if "--version" in sys.argv:
+        from sequana_pipetools.misc import print_version
+        print_version(NAME)
+        sys.exit(0)
+
     # whatever needs to be called by all pipeline before the options parsing
     init_pipeline(NAME)
 
     # option parsing including common epilog
     options = Options(NAME, epilog=sequana_epilog).parse_args(args[1:])
 
+    from sequana.snaketools import Module
+    m = Module(NAME)
+    m.is_executable()
+
+    from sequana import logger
+    logger.level = "INFO"
     # the real stuff is here
     manager = PipelineManager(options, NAME)
 
