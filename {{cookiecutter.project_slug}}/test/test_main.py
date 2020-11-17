@@ -5,7 +5,7 @@ import subprocess
 import sys
 from sequana.pipelines_common import get_pipeline_location as getpath
 
-sharedir = getpath('quality_control')
+sharedir = getpath('{{cookiecutter.name}}')
 
 
 def test_standalone_subprocess():
