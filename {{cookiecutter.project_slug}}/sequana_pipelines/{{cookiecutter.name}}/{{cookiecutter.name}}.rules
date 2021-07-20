@@ -3,7 +3,7 @@
 Author: Sequana Developer
 Affiliation: Institut Pasteur @ 2019-2021
 
-This pipeline is part of Sequana software (sequana.readthedocs.io)
+This pipeline is part of Sequana project (sequana.readthedocs.io)
 
 snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
 
@@ -12,8 +12,6 @@ snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
 import sequana
 from sequana import snaketools as sm
 from sequana import sequana_data
-
-#sm.init("fastqc.rules", globals())
 
 # This must be defined before the include
 configfile: "config.yaml"
@@ -61,15 +59,15 @@ onsuccess:
     shell("rm -f ./samples/*/*.done")
     shell("rm -f ./samples/*/*.log")
     shell("chmod -R g+w .")
+    
+    import colorlog
+    log = colorlog.getLogger("sequana.{{cookiecutter.name}}")
+    log.setLevel("INFO")
 
-
-    from sequana.snaketools import OnSuccessCleaner
-    sc = OnSuccessCleaner()
-    sc.files_to_remove.append("fastqc.rules")
-    toremove = config["onsuccess"]["toclean"]
-    sc.files_to_remove.append(toremove)
-    sc.add_makefile()
+    manager.teardown()
     print("Once done, please clean up the directory using\n'make clean'")
 
 onerror:
-    print("An error occurred. See message above.")
+    from sequana_pipetools.errors import PipeError
+    p = PipeError("{{cookiecutter.name}}")
+    p.status()
