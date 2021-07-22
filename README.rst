@@ -55,6 +55,7 @@ similar to ::
     │   └── varseq
     │       ├── config.yaml
     │       ├── __init__.py
+    │       ├── main.py
     │       ├── varseq.rules
     │       ├── README.rst
     │       ├── requirements.txt
