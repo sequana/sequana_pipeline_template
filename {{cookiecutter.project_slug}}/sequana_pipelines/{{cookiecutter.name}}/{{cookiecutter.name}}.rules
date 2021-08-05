@@ -28,9 +28,7 @@ Execution:
 
 or following the instructions from step 1.
 
-"""
 from sequana_pipetools import snaketools as sm
-
 
 # This must be defined before the include
 configfile: "config.yaml"
@@ -76,6 +74,10 @@ onsuccess:
     shell("rm -f ./samples/*/*.done")
     shell("rm -f ./samples/*/*.log")
     shell("chmod -R g+w .")
+    
+    import colorlog
+    log = colorlog.getLogger("sequana.{{cookiecutter.name}}")
+    log.setLevel("INFO")
 
     manager.teardown()
     print("Once done, please clean up the directory using\n'make clean'")
