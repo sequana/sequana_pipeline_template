@@ -3,7 +3,7 @@ import os
 import tempfile
 import subprocess
 import sys
-from sequana.pipelines_common import get_pipeline_location as getpath
+from sequana_pipetools.pipelines_common import get_pipeline_location as getpath
 
 sharedir = getpath('{{cookiecutter.name}}')
 

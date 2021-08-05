@@ -1,3 +1,15 @@
+#
+#  This file is part of Sequana software
+#
+#  Copyright (c) 2016-2021 - Sequana Dev Team (https://sequana.readthedocs.io)
+#
+#  Distributed under the terms of the 3-clause BSD license.
+#  The full license is in the LICENSE file, distributed with this software.
+#
+#  Website:       https://github.com/sequana/sequana
+#  Documentation: http://sequana.readthedocs.io
+#  Contributors:  https://github.com/sequana/sequana/graphs/contributors
+##############################################################################
 import sys
 import os
 import argparse
@@ -14,9 +26,12 @@ NAME = "{{cookiecutter.name}}"
 class Options(argparse.ArgumentParser):
     def __init__(self, prog=NAME, epilog=None):
         usage = col.purple(sequana_prolog.format(**{"name": NAME}))
-        super(Options, self).__init__(usage=usage, prog=prog, description="",
+        super(Options, self).__init__(
+            usage=usage,
+            prog=prog,
+            description="",
             epilog=epilog,
-            formatter_class=argparse.ArgumentDefaultsHelpFormatter
+            formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         )
 
         # add a new group of options to the parser
@@ -40,16 +55,17 @@ class Options(argparse.ArgumentParser):
     def parse_args(self, *args):
         args_list = list(*args)
         if "--from-project" in args_list:
-            if len(args_list)>2:
-                msg = "WARNING [sequana]: With --from-project option, " + \
-                        "pipeline and data-related options will be ignored."
+            if len(args_list) > 2:
+                msg = (
+                    "WARNING [sequana]: With --from-project option, "
+                    + "pipeline and data-related options will be ignored."
+                )
                 print(col.error(msg))
             for action in self._actions:
                 if action.required is True:
                     action.required = False
         options = super(Options, self).parse_args(*args)
         return options
-
 
 
 def main(args=None):
@@ -59,11 +75,11 @@ def main(args=None):
 
     # whatever needs to be called by all pipeline before the options parsing
     from sequana_pipetools.options import before_pipeline
+
     before_pipeline(NAME)
 
     # option parsing including common epilog
     options = Options(NAME, epilog=sequana_epilog).parse_args(args[1:])
-
 
     from sequana.pipelines_common import SequanaManager
 

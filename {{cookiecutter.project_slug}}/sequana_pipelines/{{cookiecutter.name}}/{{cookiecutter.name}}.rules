@@ -1,25 +1,40 @@
+#
+#  This file is part of Sequana software
+#
+#  Copyright (c) 2016-2021 - Sequana Dev Team (https://sequana.readthedocs.io)
+#
+#  Distributed under the terms of the 3-clause BSD license.
+#  The full license is in the LICENSE file, distributed with this software.
+#
+#  Website:       https://github.com/sequana/sequana
+#  Documentation: http://sequana.readthedocs.io
+#  Contributors:  https://github.com/sequana/sequana/graphs/contributors
+##############################################################################
+
 """{{cookiecutter.name}} pipeline
 
-Author: Sequana Developer
-Affiliation: Institut Pasteur @ 2019-2021
+Author: Sequana Developers
 
-This pipeline is part of Sequana software (sequana.readthedocs.io)
+This pipeline is part of Sequana project (sequana.readthedocs.io)
 
-snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
+Execution:
+1. prepare the pipelie:
 
+    sequana_{{cookiecutter.name}} --help
+
+2. exceute it either manually:
+
+    snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
+
+or following the instructions from step 1.
 
 """
-import sequana
-from sequana import snaketools as sm
-from sequana import sequana_data
+from sequana_pipetools import snaketools as sm
 
-#sm.init("fastqc.rules", globals())
 
 # This must be defined before the include
 configfile: "config.yaml"
 
-# Generic include of some dynamic modules
-# exec(open(sequana.modules["fastqc_dynamic"], "r").read())
 
 # A convenient manager
 manager = sm.PipelineManager("{{cookiecutter.name}}", config)
@@ -44,7 +59,7 @@ rule multiqc:
     params:
         inputdir = config['multiqc']['indir'],
         outdir="multiqc",
-        config=sequana_data("multiqc_config.yaml", "../multiqc"),
+        config="multiqc_config.yaml",
         options = config["multiqc"]["options"] 
     shell:
         """
@@ -62,14 +77,10 @@ onsuccess:
     shell("rm -f ./samples/*/*.log")
     shell("chmod -R g+w .")
 
-
-    from sequana.snaketools import OnSuccessCleaner
-    sc = OnSuccessCleaner()
-    sc.files_to_remove.append("fastqc.rules")
-    toremove = config["onsuccess"]["toclean"]
-    sc.files_to_remove.append(toremove)
-    sc.add_makefile()
+    manager.teardown()
     print("Once done, please clean up the directory using\n'make clean'")
 
 onerror:
-    print("An error occurred. See message above.")
+    from sequana_pipetools.errors import PipeError
+    p = PipeError("{{cookiecutter.name}}")
+    p.status()
