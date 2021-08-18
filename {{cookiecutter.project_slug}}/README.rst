@@ -1,3 +1,17 @@
+
+.. image:: https://badge.fury.io/py/sequana-{{cookiecutter.name}}.svg
+     :target: https://pypi.python.org/pypi/sequana_{{cookiecutter.name}}
+
+.. image:: http://joss.theoj.org/papers/10.21105/joss.00352/status.svg
+    :target: http://joss.theoj.org/papers/10.21105/joss.00352
+    :alt: JOSS (journal of open source software) DOI
+
+.. image:: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows/main.yml/badge.svg
+   :target: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows    
+
+
+
+
 This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://sequana.readthedocs.org>`_ project
 
 :Overview: TODO 
