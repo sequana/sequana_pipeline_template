@@ -13,10 +13,13 @@
 import sys
 import os
 import argparse
+import shutil
+import subprocess
 
 from sequana_pipetools.options import *
 from sequana_pipetools.misc import Colors
 from sequana_pipetools.info import sequana_epilog, sequana_prolog
+from sequana_pipetools import SequanaManager
 
 col = Colors()
 
@@ -81,14 +84,18 @@ def main(args=None):
     # option parsing including common epilog
     options = Options(NAME, epilog=sequana_epilog).parse_args(args[1:])
 
-    from sequana.pipelines_common import SequanaManager
-
     # the real stuff is here
     manager = SequanaManager(options, NAME)
 
     # create the beginning of the command and the working directory
     manager.setup()
+    from sequana import logger
 
+    logger.setLevel(options.level)
+    logger.name = "sequana_{{ name }}}
+    logger.info(f"#Welcome to sequana_{{ name }} pipeline.")
+
+    # fill the config file with input parameters
     if options.from_project is None:
         # fill the config file with input parameters
         cfg = manager.config.config

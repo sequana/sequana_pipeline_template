@@ -72,27 +72,25 @@ setup(
     keywords         = metainfo['keywords'],
     description      = metainfo['description'],
     license          = metainfo['license'],
+    long_description_content_type = "text/x-rst",
     platforms        = metainfo['platforms'],
     url              = metainfo['url'],
     classifiers      = metainfo['classifiers'],
 
     # package installation
-    packages = ["sequana_pipelines.{{cookiecutter.name}}",
-        'sequana_pipelines.{{cookiecutter.name}}.data' ],
+    packages = ["sequana_pipelines.{{cookiecutter.name}}"],
 
     install_requires = open("requirements.txt").read(),
 
     # This is recursive include of data files
     exclude_package_data = {"": ["__pycache__"]},
     package_data = {
-        '': ['*.yaml', "*.rules", "*.json", "requirements.txt", "*png", "*yml", "*smk"],
-        'sequana_pipelines.{{cookiecutter.name}}.data' : ['*.*'], 
+        '': ['*.yaml', "*.rules", "*.json", "requirements.txt", "*png", "*yml", "*smk"]
         },
 
     zip_safe=False,
 
     entry_points = {'console_scripts':[
-        'sequana_pipelines_{{cookiecutter.name}}=sequana_pipelines.{{cookiecutter.name}}.main:main',
         'sequana_{{cookiecutter.name}}=sequana_pipelines.{{cookiecutter.name}}.main:main']
     }
 
