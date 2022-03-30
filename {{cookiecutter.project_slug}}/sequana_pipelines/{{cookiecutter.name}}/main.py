@@ -92,7 +92,7 @@ def main(args=None):
     from sequana import logger
 
     logger.setLevel(options.level)
-    logger.name = "sequana_{{ name }}}
+    logger.name = "sequana_{{ cookiecutter.name }}"
     logger.info(f"#Welcome to sequana_{{ name }} pipeline.")
 
     # fill the config file with input parameters
