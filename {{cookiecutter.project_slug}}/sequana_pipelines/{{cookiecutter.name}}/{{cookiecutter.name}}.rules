@@ -60,10 +60,6 @@ localrules: multiqc, rulegraph
 
 
 onsuccess:
-    print("Please open the report index.html or {}".format(__multiqc__output))
-    shell("ln -f -s {} index.html".format(__multiqc__output))
-    shell("rm -f ./samples/*/*.done")
-    shell("rm -f ./samples/*/*.log")
     shell("chmod -R g+w .")
     
     import colorlog
