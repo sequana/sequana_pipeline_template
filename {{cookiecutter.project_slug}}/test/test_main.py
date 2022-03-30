@@ -11,13 +11,13 @@ def test_standalone_subprocess(tmpdir):
     subprocess.call(cmd)
 
 
-def test_standalone_script(tmpdir):
+def _test_standalone_script(tmpdir):
     input_dir = os.sep.join((test_dir, 'resources'))
     sys.argv = ["test", "--input-directory", input_dir, "--working-directory", str(tmpdir), "--force"]
     m.main()
 
 
 def test_version():
-    cmd = ["sequana_pipelines_{{cookiecutter.name}}, --version"]
+    cmd = ["sequana_{{cookiecutter.name}}", "--version"]
     subprocess.call(cmd)
 

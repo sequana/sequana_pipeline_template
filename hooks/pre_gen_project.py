@@ -70,5 +70,6 @@ else:
 
 
 if project_slug != "sequana_" + module_name:
-    print(colors.purple("In the project_slug choice, just press enter. Do not overwrite the default value"))
+    print(colors.error("The project name must start with sequana_"))
     sys.exit(1)
+print(colors.purple("In the project_slug choice, just press enter. Do not overwrite the default value"))
