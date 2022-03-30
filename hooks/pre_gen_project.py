@@ -65,11 +65,10 @@ if not re.match(MODULE_REGEX, module_name):
     print(colors.failed("ERROR: '%s' is not a valid Python module name ! \n" % module_name))
     # exits with status 1 to indicate failure
     sys.exit(1)
-else:
-    print(colors.purple("The name provided ({}) seems correct. Congratulations !".format(module_name)))
 
 
 if project_slug != "sequana_" + module_name:
     print(colors.error("The project name must start with sequana_"))
     sys.exit(1)
+print(colors.purple("The name provided ({}) seems correct. Congratulations !".format(module_name)))
 print(colors.purple("In the project_slug choice, just press enter. Do not overwrite the default value"))
