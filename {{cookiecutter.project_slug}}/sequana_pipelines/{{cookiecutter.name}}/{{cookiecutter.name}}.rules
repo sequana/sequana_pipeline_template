@@ -27,6 +27,7 @@ Execution:
     snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
 
 or following the instructions from step 1.
+"""
 
 from sequana_pipetools import snaketools as sm
 
@@ -40,32 +41,22 @@ manager = sm.PipelineManager("{{cookiecutter.name}}", config)
 rule pipeline:
     input: "multiqc/multiqc_report.html"
 
+# ======================================================================================== multiqc
+sequana_multiqc_input = [list of files]
+include: sm.modules["multiqc/2.0"]
 
-# FASTQC on input data set
-__fastqc_samples__input_fastq = manager.getrawdata()
-__fastqc_samples__output_done = "samples/{sample}/{sample}.done"
-__fastqc_samples__wkdir       = "samples/{sample}" # manager.getwkdir("fastqc_samples")
-__fastqc_samples__log = "samples/%s/fastqc.log" % manager.sample
-include: fastqc_dynamic("samples", manager)
+ 
+# ======================================================================================== rulegraph
+sequana_rulegraph_mapper = {}
+
+include: sm.modules["rulegraph"]
+localrules: rulegraph, multiqc,
 
 
-__multiqc__input = expand(__fastqc_samples__output_done, sample=manager.samples)
 
-rule multiqc:
-    input: __multiqc__input
-    output: __multiqc__output
-    params:
-        inputdir = config['multiqc']['indir'],
-        outdir="multiqc",
-        config="multiqc_config.yaml",
-        options = config["multiqc"]["options"] 
-    shell:
-        """
-        multiqc {params.inputdir} -o {params.outdir} -c {params.config} {params.options} 2> multiqc/multiqc.log
-        """
 
 # Those rules takes a couple of seconds so no need for a cluster
-localrules: multiqc
+localrules: multiqc, rulegraph
 
 
 onsuccess:
