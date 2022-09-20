@@ -24,13 +24,19 @@ This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://seq
 Installation
 ~~~~~~~~~~~~
 
-You must install Sequana first::
+If you already have all requirements, you can install the packages using pip::
 
-    pip install sequana
+    pip install sequana_{{cookiecutter.name}} --upgrade
 
-Then, just install this package::
+Otherwise, you can create a *sequana_{{cookiecutter.name}}* conda environment executing::
 
-    pip install sequana_{{cookiecutter.name}}
+    conda env create -f environment.yml
+
+and later activate the environment::
+
+  conda activate sequana_{{cookiecutter.name}}
+
+A third option is to install the pipeline with pip method (see above) and use singularity as explained afterwards.
 
 
 Usage
@@ -54,6 +60,28 @@ retrieve the pipeline itself and its configuration files and then execute the pi
 
 Or use `sequanix <https://sequana.readthedocs.io/en/master/sequanix.html>`_ interface.
 
+
+Usage with singularity::
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With singularity, initiate the working directory as follows::
+
+    sequana_{{cookiecutter.name}} --use-singularity
+
+Images are downloaded in the working directory but you can store then in a directory globally (e.g.)::
+
+    sequana_{{cookiecutter.name}} --use-singularity --singularity-prefix ~/.sequana/apptainers
+
+and then::
+
+    cd {{cookiecutter.name}}
+    sh {{cookiecutter.name}}.sh
+
+if you decide to use snakemake manually, do not forget to add singularity options::
+
+    snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt --use-singularity --singularity-prefix ~/.sequana/apptainers --singularity-args "-B /home:/home"
+
+    
 Requirements
 ~~~~~~~~~~~~
 

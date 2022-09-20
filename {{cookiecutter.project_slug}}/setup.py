@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# License: 3-clause BSD
 from setuptools import setup, find_namespace_packages
 from setuptools.command.develop import develop
 from setuptools.command.install import install
@@ -35,9 +33,9 @@ metainfo = {
           'Intended Audience :: Science/Research',
           'License :: OSI Approved :: BSD License',
           'Operating System :: OS Independent',
-          'Programming Language :: Python :: 3.6',
           'Programming Language :: Python :: 3.7',
           'Programming Language :: Python :: 3.8',
+          'Programming Language :: Python :: 3.9',
           'Topic :: Software Development :: Libraries :: Python Modules',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
           'Topic :: Scientific/Engineering :: Information Analysis',
@@ -81,7 +79,17 @@ setup(
     packages = ["sequana_pipelines.{{cookiecutter.name}}"],
 
     install_requires = open("requirements.txt").read(),
-
+    extras_require={
+        "testing": [
+            "pytest",
+            "pytest-cov",
+            "pytest-xdist",
+            "pytest-mock",
+            "pytest-timeout",
+            "pytest-runner",
+            "coveralls",
+        ],
+    },
     # This is recursive include of data files
     exclude_package_data = {"": ["__pycache__"]},
     package_data = {

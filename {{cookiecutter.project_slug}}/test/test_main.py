@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 import sequana_pipelines.{{cookiecutter.name}}.main as m
-
+from . import test_dir
 
 def test_standalone_subprocess(tmpdir):
     input_dir = os.sep.join((test_dir, 'resources'))
