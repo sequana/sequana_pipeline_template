@@ -5,7 +5,7 @@ import subprocess
 
 
 # handle sequana git link
-with open("requirements.txt") as fh:
+with open("requirements.txt", encoding='utf-8') as fh:
     requirements = [req.rstrip() if not req.startswith("git+") else req.rstrip().split("egg=")[-1] for req in fh]
 
 
@@ -78,7 +78,7 @@ setup(
     # package installation
     packages = ["sequana_pipelines.{{cookiecutter.name}}"],
 
-    install_requires = open("requirements.txt").read(),
+    install_requires = requirements,
     extras_require={
         "testing": [
             "pytest",
