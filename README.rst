@@ -107,7 +107,7 @@ Once happy, you can create a local repository::
 
 Then, commit and push you files and push to a remote repositoty. For example::
 
-    git remote add origin https://github.com/your_repo
+    git remote add origin git@github.com:sequana/your_repo
     git push --set-upstream origin main
 
 
