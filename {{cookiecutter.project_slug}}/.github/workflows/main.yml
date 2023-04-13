@@ -54,7 +54,9 @@ jobs:
 
     - name: testing
       run: |
+{% endraw %}
         pytest --cov-report term --cov=sequana_pipelines.{{cookiecutter.name}}
+{% raw %}
     - name: coveralls
       run: |
         echo $COVERALLS_REPO_TOKEN

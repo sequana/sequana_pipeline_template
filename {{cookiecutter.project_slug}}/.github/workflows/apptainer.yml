@@ -54,4 +54,5 @@ jobs:
 
     - name: testing
       run: |
+{% endraw %}
         sequana_{{cookiecutter.name}} --input-directory test/data/ --use-apptainer && cd {cookiecutter.name}} && sh {cookiecutter.name}}.sh
