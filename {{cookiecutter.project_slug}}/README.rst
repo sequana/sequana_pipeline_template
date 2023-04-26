@@ -9,6 +9,13 @@
 .. image:: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows/main.yml/badge.svg
    :target: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows    
 
+.. image:: http://joss.theoj.org/papers/10.21105/joss.00352/status.svg
+   :target: http://joss.theoj.org/papers/10.21105/joss.00352
+   :alt: JOSS (journal of open source software) DOI
+
+.. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C3.10-blue.svg
+    :target: https://pypi.python.org/pypi/sequana/{{cookiecutter.name}}
+    :alt: Python 3.8 | 3.9 | 3.10
 
 
 
@@ -36,7 +43,7 @@ and later activate the environment::
 
   conda activate sequana_{{cookiecutter.name}}
 
-A third option is to install the pipeline with pip method (see above) and use singularity as explained afterwards.
+A third option is to install the pipeline with pip method (see above) and use apptainer / singularity as explained afterwards.
 
 
 Usage
@@ -58,30 +65,33 @@ retrieve the pipeline itself and its configuration files and then execute the pi
 
     snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt
 
-Or use `sequanix <https://sequana.readthedocs.io/en/master/sequanix.html>`_ interface.
+Or use `sequanix <https://sequana.readthedocs.io/en/main/sequanix.html>`_ interface.
 
 
-Usage with singularity::
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Usage with apptainer / singularity::
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With singularity, initiate the working directory as follows::
+With Apptainer, initiate the working directory as follows::
 
-    sequana_{{cookiecutter.name}} --use-singularity
+    sequana_{{cookiecutter.name}} --use-apptainer
 
 Images are downloaded in the working directory but you can store then in a directory globally (e.g.)::
 
-    sequana_{{cookiecutter.name}} --use-singularity --singularity-prefix ~/.sequana/apptainers
+    sequana_{{cookiecutter.name}} --use-apptainer --apptainer-prefix ~/.sequana/apptainers
 
 and then::
 
     cd {{cookiecutter.name}}
     sh {{cookiecutter.name}}.sh
 
-if you decide to use snakemake manually, do not forget to add singularity options::
+if you decide to use snakemake manually, do not forget to add apptainer options::
 
-    snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt --use-singularity --singularity-prefix ~/.sequana/apptainers --singularity-args "-B /home:/home"
+    snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt --use-apptainer --apptainer-prefix ~/.sequana/apptainers --apptainer-args "-B /home:/home"
 
-    
+By default, the home is already set for you. Additional binding path can be set using environment variables e.g.::
+
+    export APPTAINER_BINDPATH=" -B /pasteur"
+
 Requirements
 ~~~~~~~~~~~~
 
