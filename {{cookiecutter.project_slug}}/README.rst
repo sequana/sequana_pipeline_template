@@ -31,20 +31,11 @@ This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://seq
 Installation
 ~~~~~~~~~~~~
 
-If you already have all requirements, you can install the packages using pip::
+sequana_fastqc is based on Python3, just install the package as follows::
 
     pip install sequana_{{cookiecutter.name}} --upgrade
 
-Otherwise, you can create a *sequana_{{cookiecutter.name}}* conda environment executing::
-
-    conda env create -f environment.yml
-
-and later activate the environment::
-
-  conda activate sequana_{{cookiecutter.name}}
-
-A third option is to install the pipeline with pip method (see above) and use apptainer / singularity as explained afterwards.
-
+You will need third-party software such as fastqc. Please see below for details.
 
 Usage
 ~~~~~
@@ -99,7 +90,7 @@ This pipelines requires the following executable(s):
 
 - TODO
 
-.. image:: https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/dag.png
+.. image:: https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/main/sequana_pipelines/{{cookiecutter.name}}/dag.png
 
 
 Details
@@ -112,7 +103,7 @@ A brief sequana summary report is also produced.
 Rules and configuration details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here is the `latest documented configuration file <https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/master/sequana_pipelines/{{cookiecutter.name}}/config.yaml>`_
+Here is the `latest documented configuration file <https://raw.githubusercontent.com/sequana/sequana_{{cookiecutter.name}}/main/sequana_pipelines/{{cookiecutter.name}}/config.yaml>`_
 to be used with the pipeline. Each rule used in the pipeline may have a section in the configuration file. 
 
 Changelog
@@ -124,4 +115,11 @@ Version   Description
 0.0.1     **First release.**
 ========= ====================================================================
 
+
+Contribute & Code of Conduct
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To contribute to this project, please take a look at the 
+`Contributing Guidelines <https://github.com/sequana/sequana/blob/main/CONTRIBUTING.rst>`_ first. Please note that this project is released with a 
+`Code of Conduct <https://github.com/sequana/sequana/blob/main/CONDUCT.md>`_. By contributing to this project, you agree to abide by its terms.
 

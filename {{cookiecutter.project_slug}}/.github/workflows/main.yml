@@ -6,10 +6,11 @@ on:
     branches:
       - main
       - dev
+  workflow_dispatch:
   pull_request:
     branches-ignore: []
   schedule:
-    - cron: '0 0 * * SUN'
+    - cron: '0 0 8 * *'
 
 jobs:
   build-linux:
@@ -30,38 +31,34 @@ jobs:
     - name: checkout git repo
       uses: actions/checkout@v2
 
-    - name: Set up Python 3.X
-      uses: actions/setup-python@v2
+    - name: conda/mamba
+      uses: mamba-org/provision-with-micromamba@main
       with:
-        python-version: ${{ matrix.python }}
-
-    - name: Add conda to system path
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-
-    - name: conda
-      run: |
-        conda install -c conda-forge -c bioconda --quiet -y python=${{ matrix.python }} bwa
-
-    - name: Install dependencies
-      run: |
-        pip install .[testing]
+          environment-file: environment.yml
+          extra-specs: |
+            python=${{ matrix.python }}
 
     - name: install package itself
+      shell: bash -l {0}
       run: |
-         pip install .
+        pip install .
+
+    - name: Install dependencies
+      shell: bash -l {0}
+      run: |
+        pip install coveralls pytest-cov pytest pytest-xdist
 
     - name: testing
+      shell: bash -l {0}
       run: |
-{% endraw %}
-        pytest --cov-report term --cov=sequana_pipelines.{{cookiecutter.name}}
-{% raw %}
+        pytest -v --cov-report term-missing --cov=sequana_pipelines.{{cookiecutter.name}}
+
     - name: coveralls
+      shell: bash -l {0}
       run: |
         echo $COVERALLS_REPO_TOKEN
         coveralls --service=github
       env:
-          GITHUB_TOKEN:  ${{ github.token }} 
+          GITHUB_TOKEN: ${{ github.token }}
 {% endraw %}
 

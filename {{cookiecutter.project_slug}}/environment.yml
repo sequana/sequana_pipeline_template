@@ -1,0 +1,10 @@
+name: sequana_{{cookiecutter.name}}
+
+channels:
+- conda-forge
+- bioconda
+- defaults
+- r
+
+dependencies:
+- graphviz

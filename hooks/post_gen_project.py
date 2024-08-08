@@ -55,7 +55,7 @@ class Colors:
 
 colors = Colors()
 
-print(colors.purple("Your pipeline layout is now ready in {{cookiecutter.name}}/ directory"))
+print(colors.purple("Your pipeline layout is now ready in sequana_{{cookiecutter.name}}/ directory"))
 print(colors.purple("Thanks for using sequana_start_pipeline / sequana_pipeline_template cookiecutter"))
 print(colors.purple("Any suggestions welcome on https://github.com/sequana/sequana project"))
 

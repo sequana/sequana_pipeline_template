@@ -2,7 +2,7 @@
 Sequana Pipeline Template
 =========================
 
-:version: 1.0
+:version: 2.0
 
 This repository is a Cookiecutter template to start a new `Sequana pipeline <https://sequana.readthedocs.io>`_ 
 implementation from scratch.
@@ -111,4 +111,7 @@ Then, commit and push you files and push to a remote repositoty. For example::
     git push --set-upstream origin main
 
 
+Changelog
 
+* v2: uses poetry
+* v1: uses setuptools
