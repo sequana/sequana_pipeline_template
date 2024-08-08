@@ -105,10 +105,21 @@ Once happy, you can create a local repository::
 
     git init
 
-Then, commit and push you files and push to a remote repositoty. For example::
+Create and switch to main branch: if you are on a different branch, 
+you can create and switch to the main branch with::
+
+    git checkout -b main
+
+Add and commit changes: ensure you have at least one commit in your
+repository. Make an initial commit::
+
+    git add .
+    git commit -m "Initial commit"
+
+Push to Remote Repository: try pushing to the remote repository::
 
     git remote add origin git@github.com:sequana/your_repo
-    git push --set-upstream origin main
+    git push -u origin main
 
 
 Changelog
