@@ -14,3 +14,10 @@ mapping:
     "input_pattern":
         type: str
         required: False
+    "todo":
+        type: map
+        required: False
+        mapping:
+            "example1":
+                type: bool
+                required: False

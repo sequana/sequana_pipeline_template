@@ -6,12 +6,12 @@
     :target: http://joss.theoj.org/papers/10.21105/joss.00352
     :alt: JOSS (journal of open source software) DOI
 
-.. image:: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows/main.yml/badge.svg
-   :target: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows    
+.. image:: https://github.com/sequana/sequana_{{cookiecutter.name}}/actions/workflows/main.yml/badge.svg
+   :target: https://github.com/sequana/sequana_{{cookiecutter.name}}/actions/workflows/main.yml
 
-.. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C3.10-blue.svg
+.. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue.svg
     :target: https://pypi.python.org/pypi/sequana_{{cookiecutter.name}}
-    :alt: Python 3.8 | 3.9 | 3.10
+    :alt: Python 3.8 | 3.9 | 3.10 | 3.11
 
 
 

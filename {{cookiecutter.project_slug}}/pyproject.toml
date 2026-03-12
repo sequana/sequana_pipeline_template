@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "{{cookiecutter.description}}"
 authors = ["Sequana Team"]
 license = "BSD-3"
-repository = "https://github.com/sequana/{{cookiecutter.name}}"
+repository = "https://github.com/sequana/sequana_{{cookiecutter.name}}"
 readme = "README.rst"
 keywords = ['{{cookiecutter.keywords}}']
 classifiers = [
@@ -20,6 +20,7 @@ classifiers = [
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: BSD License",
         "Operating System :: POSIX :: Linux",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",

@@ -30,6 +30,7 @@ or following the instructions from step 1.
 """
 
 from sequana_pipetools import snaketools as sm
+import colorlog
 
 # This must be defined before the include
 configfile: "config.yaml"
@@ -59,7 +60,6 @@ localrules: multiqc, rulegraph
 onsuccess:
     shell("chmod -R g+w .")
     
-    import colorlog
     log = colorlog.getLogger("sequana.{{cookiecutter.name}}")
     log.setLevel("INFO")
 

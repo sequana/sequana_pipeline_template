@@ -24,7 +24,7 @@ input_pattern: '*.fastq.gz'
 #
 # For instance, if you have files called prefix.mess.A.fastq.gz and prefix.B.fastq.gz
 # 'prefix.' will be removed automatically because it is common, but not 'mess'. 
-# use thoses prefixes in the left to right order ['prefix', 'mess'] or ['prefix.mess']
+# use those prefixes in the left to right order ['prefix', 'mess'] or ['prefix.mess']
 #
 # extra_prefixes_to_strip: []
 
@@ -47,7 +47,7 @@ input_pattern: '*.fastq.gz'
 #
 # :Parameters:
 #
-# - options: string with any valid FastQC options
+# - example1: set to true or false
 todo:
     example1: true
 
