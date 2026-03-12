@@ -1,7 +1,8 @@
 recursive-exclude * __pycache__
 recursive-exclude * *pyc
 recursive-include * *rules
-include requirements*txt
+recursive-include * *.yaml
 include README.rst
+include LICENSE
 prune test
 prune doc

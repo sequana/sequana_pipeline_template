@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "{{cookiecutter.description}}"
 authors = ["Sequana Team"]
 license = "BSD-3"
-repository = "https://github.com/sequana/{{cookiecutter.name}}"
+repository = "https://github.com/sequana/sequana_{{cookiecutter.name}}"
 readme = "README.rst"
 keywords = ['{{cookiecutter.keywords}}']
 classifiers = [
@@ -34,7 +34,7 @@ packages = [
 
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = ">=3.9,<4.0"
 sequana = ">=0.17.0"
 sequana_pipetools = ">=1.0.0"
 click-completion = "^0.5.2"

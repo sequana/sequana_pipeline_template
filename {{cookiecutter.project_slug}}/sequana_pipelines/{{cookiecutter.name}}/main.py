@@ -26,7 +26,7 @@ NAME = "{{cookiecutter.name}}"
 
 help = init_click(NAME, groups={
     "Pipeline Specific": [
-        "--method", "--skip-multiqc"],
+        "--todo", "--skip-todo"],
         }
 )
 
