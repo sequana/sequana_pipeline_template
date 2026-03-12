@@ -9,7 +9,7 @@ project_slug = '{{ cookiecutter.project_slug }}'
 
 
 
-# THIS SHOUL REMAINS PURE PYTHON
+# THIS SHOULD REMAINS PURE PYTHON
 
 
 class Colors:

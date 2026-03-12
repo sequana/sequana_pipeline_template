@@ -1,7 +1,7 @@
 language: Snakemake
 name: sequana_{{cookiecutter.name}}
 description: {{cookiecutter.description}}
-url: https://github.com/sequana/sequana_{{cookiecutter.name}}/blob/master/sequana_pipelines/{{cookiecutter.name}}/{{cookiecutter.name}}.rules
+url: https://github.com/sequana/sequana_{{cookiecutter.name}}/blob/main/sequana_pipelines/{{cookiecutter.name}}/{{cookiecutter.name}}.rules
 categories: [NGS, snakemake, sequana]
 authors:
     - firstname: Thomas

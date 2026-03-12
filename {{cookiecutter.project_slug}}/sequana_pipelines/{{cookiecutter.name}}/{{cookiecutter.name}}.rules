@@ -18,11 +18,11 @@ Author: Sequana Developers
 This pipeline is part of Sequana project (sequana.readthedocs.io)
 
 Execution:
-1. prepare the pipelie:
+1. prepare the pipeline:
 
     sequana_{{cookiecutter.name}} --help
 
-2. exceute it either manually:
+2. execute it either manually:
 
     snakemake -s {{cookiecutter.name}}.rules --forceall --stats stats.txt --cores 4
 
@@ -42,7 +42,7 @@ rule pipeline:
     input: "multiqc/multiqc_report.html"
 
 # ======================================================================================== multiqc
-sequana_multiqc_input = [list of files]
+sequana_multiqc_input = []  # TODO: add list of files to be processed by multiqc
 include: sm.modules["multiqc/2.0"]
 
  
@@ -50,9 +50,6 @@ include: sm.modules["multiqc/2.0"]
 sequana_rulegraph_mapper = {}
 
 include: sm.modules["rulegraph"]
-localrules: rulegraph, multiqc,
-
-
 
 
 # Those rules takes a couple of seconds so no need for a cluster
