@@ -47,7 +47,7 @@ help = init_click(NAME, groups={
 )
 @click.option(
     "--skip-todo",
-    is_flag=False,
+    is_flag=True,
     help="""a flag""",
 )
 def main(**options):

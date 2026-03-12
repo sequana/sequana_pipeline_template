@@ -9,17 +9,13 @@
 .. image:: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows/main.yml/badge.svg
    :target: https://github.com/sequana/{{cookiecutter.name}}/actions/workflows    
 
-.. image:: http://joss.theoj.org/papers/10.21105/joss.00352/status.svg
-   :target: http://joss.theoj.org/papers/10.21105/joss.00352
-   :alt: JOSS (journal of open source software) DOI
-
 .. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C3.10-blue.svg
-    :target: https://pypi.python.org/pypi/sequana/{{cookiecutter.name}}
+    :target: https://pypi.python.org/pypi/sequana_{{cookiecutter.name}}
     :alt: Python 3.8 | 3.9 | 3.10
 
 
 
-This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://sequana.readthedocs.org>`_ project
+This is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://sequana.readthedocs.org>`_ project
 
 :Overview: TODO 
 :Input: TODO
@@ -31,19 +27,19 @@ This is is the **{{cookiecutter.name}}** pipeline from the `Sequana <https://seq
 Installation
 ~~~~~~~~~~~~
 
-sequana_fastqc is based on Python3, just install the package as follows::
+sequana_{{cookiecutter.name}} is based on Python3, just install the package as follows::
 
     pip install sequana_{{cookiecutter.name}} --upgrade
 
-You will need third-party software such as fastqc. Please see below for details.
+You will need third-party tools. Please see below for details.
 
 Usage
 ~~~~~
 
 ::
 
-    sequana_pipelines_{{cookiecutter.name}} --help
-    sequana_pipelines_{{cookiecutter.name}} --input-directory DATAPATH 
+    sequana_{{cookiecutter.name}} --help
+    sequana_{{cookiecutter.name}} --input-directory DATAPATH 
 
 This creates a directory with the pipeline and configuration file. You will then need 
 to execute the pipeline::
@@ -59,7 +55,7 @@ retrieve the pipeline itself and its configuration files and then execute the pi
 Or use `sequanix <https://sequana.readthedocs.io/en/main/sequanix.html>`_ interface.
 
 
-Usage with apptainer / singularity::
+Usage with apptainer / singularity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With Apptainer, initiate the working directory as follows::
