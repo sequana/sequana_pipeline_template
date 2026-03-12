@@ -9,9 +9,9 @@
 .. image:: https://github.com/sequana/sequana_{{cookiecutter.name}}/actions/workflows/main.yml/badge.svg
    :target: https://github.com/sequana/sequana_{{cookiecutter.name}}/actions/workflows/main.yml
 
-.. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue.svg
+.. image:: https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue.svg
     :target: https://pypi.python.org/pypi/sequana_{{cookiecutter.name}}
-    :alt: Python 3.8 | 3.9 | 3.10 | 3.11
+    :alt: Python 3.9 | 3.10 | 3.11
 
 
 
