@@ -58,13 +58,9 @@ Or use `sequanix <https://sequana.readthedocs.io/en/main/sequanix.html>`_ interf
 Usage with apptainer / singularity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With Apptainer, initiate the working directory as follows::
+With Apptainer, initiate the working directory as follows (images are stored in the specified directory)::
 
-    sequana_{{cookiecutter.name}} --use-apptainer
-
-Images are downloaded in the working directory but you can store then in a directory globally (e.g.)::
-
-    sequana_{{cookiecutter.name}} --use-apptainer --apptainer-prefix ~/.sequana/apptainers
+    sequana_{{cookiecutter.name}} --apptainer-prefix ~/.sequana/apptainers
 
 and then::
 
@@ -73,7 +69,7 @@ and then::
 
 if you decide to use snakemake manually, do not forget to add apptainer options::
 
-    snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt --use-apptainer --apptainer-prefix ~/.sequana/apptainers --apptainer-args "-B /home:/home"
+    snakemake -s {{cookiecutter.name}}.rules -c config.yaml --cores 4 --stats stats.txt --software-deployment-method apptainer --apptainer-prefix ~/.sequana/apptainers --apptainer-args "-B /home:/home"
 
 By default, the home is already set for you. Additional binding path can be set using environment variables e.g.::
 
